@@ -89,7 +89,8 @@ function closeTutorial() {
         "bounceContainer", "frostContainer", "triggerContainer", 'editorControlsContainer', 'particlesContainer', 'sublevelsContainer',
         'walkingContainer', 'jumpingContainer', 'grapplingContainer', 'triggerModesContainer', 'weeklySpotlightContainer', 'miniGamesContainer',
         'awesomeSeriesContainer', 'oneOfAKindContainer', 'developerPicksContainer', 'showcaseMapsContainer', 'aChallengeContainer', 'pastCompetitionsContainer',
-        'buildContainer', 'selectionContainer', 'colorsContainer', 'ambienceContainer', 'levelContainer', 'prefabsContainer', 'otherContainer'
+        'buildContainer', 'selectionContainer', 'colorsContainer', 'ambienceContainer', 'levelContainer', 'prefabsContainer', 'otherContainer',
+        'connectingContainer', 'triggeredByContainer'
     ];
 
     containers.forEach(containerId => {
