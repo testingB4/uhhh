@@ -51,12 +51,23 @@ function moveSafetyNets(container) {
     container.appendChild(safetyNets);
 }
 
-function openTutorial(element, tutorialName, totalSteps) {
+function oneCardSafetyNet(container) {
+    const safetyNet = document.getElementById("oneCard")
+    container.appendChild(safetyNet);
+}
+
+function openTutorial(element, tutorialName, totalSteps, safetyNet) {
     help.style.display = 'block';
     text.style.display = 'block';
     var container = document.getElementById(element);
     container.style.display = 'block';
-    moveSafetyNets(container);
+
+    if (safetyNet === "no") {
+        oneCardSafetyNet(container);
+    } else {
+        moveSafetyNets(container);
+    }
+
     document.getElementById("safetyNetMiddle").style.display = "block";
     document.getElementById("safetyNetRight").style.display = "block";
     num.innerText = `1/${totalSteps}`;
@@ -97,6 +108,18 @@ function closeTutorial() {
                 element.style.zIndex = '';
                 element.style.pointerEvents = 'auto';
             });
+
+            let [currentNum, total] = num.innerText.split('/').map(Number);
+
+            function decrement() {
+                if (currentNum > 1) {
+                    currentNum--;
+                    num.innerText = `${currentNum}/${total}`;
+                    setTimeout(decrement, 50);
+                }
+            }
+
+            decrement();
 
             setTimeout(() => {
                 container.style.display = 'none';
