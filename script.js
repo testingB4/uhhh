@@ -76,7 +76,9 @@ function closeTutorial() {
         "orContainer", "xorContainer", "notContainer", "ARandomiserContainer", "gravityContainer", "endContainer", "cheeseContainer",
         "iceContainer", "lavaContainer", "woodContainer", "grappleContainer", "glavaContainer", "breakingContainer", "colourContainer",
         "bounceContainer", "frostContainer", "triggerContainer", 'editorControlsContainer', 'particlesContainer', 'sublevelsContainer',
-        'walkingContainer', 'jumpingContainer', 'grapplingContainer'
+        'walkingContainer', 'jumpingContainer', 'grapplingContainer', 'triggerModesContainer', 'weeklySpotlightContainer', 'miniGamesContainer',
+        'awesomeSeriesContainer', 'oneOfAKindContainer', 'developerPicksContainer', 'showcaseMapsContainer', 'aChallengeContainer', 'pastCompetitionsContainer',
+        'buildContainer', 'selectionContainer', 'colorsContainer', 'ambienceContainer', 'levelContainer', 'prefabsContainer', 'otherContainer'
     ];
 
     containers.forEach(containerId => {
@@ -213,6 +215,13 @@ document.querySelectorAll('.tutorialGroup').forEach(group => {
     });
 });
 
+document.querySelector('#EMenu .groupTwoContainer .tutorialGroup').addEventListener('wheel', function(event) {
+    if (event.deltaY !== 0) {
+        event.preventDefault();
+        this.scrollLeft += event.deltaY * 10;
+    }
+});
+
 document.querySelector('#EMenu .groupThreeContainer .tutorialGroup').addEventListener('wheel', function(event) {
     if (event.deltaY !== 0) {
         event.preventDefault();
@@ -321,16 +330,16 @@ document.getElementById("ARandomiserGroup").addEventListener("mouseleave", () =>
     });
 });
 
-document.querySelectorAll("#grapplingGroup img, #jumpingGroup img, #walkingGroup img").forEach(img => {
-    const staticSrc = img.src; // Static first frame image
-    const gifSrc = img.src.replace("main.svg", "gif.gif"); // Derive GIF source from static source
+document.querySelectorAll("#grapplingGroup img, #jumpingGroup img, #walkingGroup img, triggerModesGroup img").forEach(img => {
+    const staticSrc = img.src;
+    const gifSrc = img.src.replace("main.svg", "gif.gif");
 
     img.addEventListener("mouseenter", () => {
-        img.src = ""; // Clear the src to reset the GIF
-        img.src = gifSrc; // Set the GIF source to restart it
+        img.src = "";
+        img.src = gifSrc;
     });
 
     img.addEventListener("mouseleave", () => {
-        img.src = staticSrc; // Reset to static image when hover ends
+        img.src = staticSrc;
     });
 });
