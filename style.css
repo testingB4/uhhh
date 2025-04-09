@@ -394,6 +394,7 @@ h1 {
     transition: transform 0.3s, left 0.3s, top 0.3s;
     pointer-events: auto;
     z-index: 3;
+    touch-action: manipulation;
 }
 
 .cardOne {
@@ -406,6 +407,7 @@ h1 {
     transform: translate(-50%, -50%) scale(1.4);
     pointer-events: none;
     z-index: 3;
+    touch-action: manipulation;
 }
 
 .cardOne.active {
@@ -479,6 +481,7 @@ h1 {
     z-index: 2;
     flex-shrink: 0;
     transition: transform 0.3s ease;
+    touch-action: manipulation;
 }
 
 .cardGroup:hover {
