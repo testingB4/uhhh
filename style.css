@@ -1,4 +1,5 @@
 @import "https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap";
+
 .cardMain {
     transition: filter 1s linear;
     pointer-events: none;
@@ -263,8 +264,8 @@ h1 {
     align-items: center;
     overflow: hidden;
     touch-action: manipulation;
-    background: rgb(144, 207, 144);
-    --menu-gradient: linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(172, 53, 53) 100%);
+    background: #2a3439;
+    --menu-gradient: linear-gradient(to top, rgba(255, 251, 251, 0) 0%, #2a3439 100%);
     padding: 2rem 1rem;
 }
 
@@ -309,10 +310,6 @@ h1 {
     font-family: 'nunito', sans-serif;
     font-weight: 800;
     touch-action: manipulation;
-}
-
-#MMenu {
-    background: rgb(172, 53, 53);
 }
 
 #MMenu::before {
@@ -863,6 +860,20 @@ h1 {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    position: relative;
+    --button-gradient: linear-gradient(to top, #2a3439, transparent);
+}
+
+#menuButtons::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: -10px;
+    width: 150%;
+    height: 5px;
+    background: var(--button-gradient);
+    pointer-events: none;
+    transition: background 0.3s ease;
 }
 
 #menuButtons button {
@@ -876,6 +887,8 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     border: black solid 3px;
+    box-shadow: 0 0 0px transparent;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 #menuButtons button:hover {
@@ -909,22 +922,27 @@ h1 {
 
 #B:hover {
     background-color: rgb(120, 173, 120);
+    box-shadow: 0 0 10px rgb(120, 173, 120);
 }
 
 #E:hover {
     background-color: rgb(100, 60, 60);
+    box-shadow: 0 0 10px rgb(100, 60, 60);
 }
 
 #A:hover {
     background-color: #4f6fb3;
+    box-shadow: 0 0 10px #4f6fb3;
 }
 
 #T:hover {
     background-color: rgb(199, 123, 0);
+    box-shadow: 0 0 10px rgb(199, 123, 0);
 }
 
 #F:hover {
     background-color: rgb(138, 43, 130);
+    box-shadow: 0 0 10px rgb(138, 43, 130);
 }
 
 @media (max-width: 768px) {

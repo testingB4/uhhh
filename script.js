@@ -18,11 +18,11 @@ function openMenu(menuId) {
     const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
     const buttons = ["T", "B", "A", "E", "F"];
     const colors = {
-        TMenu: { background: "rgb(248, 153, 0)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(248, 153, 0) 100%)" },
-        BMenu: { background: "rgb(144, 207, 144)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(144, 207, 144) 100%)" },
-        AMenu: { background: "#638DDD", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, #638DDD 100%)" },
-        EMenu: { background: "rgb(124, 72, 72)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(124, 72, 72) 100%)" },
-        FMenu: { background: "rgb(172, 53, 162)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(172, 53, 162) 100%)" }
+        TMenu: { background: "rgb(248, 153, 0)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(248, 153, 0) 100%)", buttonGradient: "linear-gradient(to top, rgb(248, 153, 0), transparent)" },
+        BMenu: { background: "rgb(144, 207, 144)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(144, 207, 144) 100%)", buttonGradient: "linear-gradient(to top, rgb(144, 207, 144), transparent)" },
+        AMenu: { background: "#638DDD", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, #638DDD 100%)", buttonGradient: "linear-gradient(to top, #638DDD, transparent)" },
+        EMenu: { background: "rgb(124, 72, 72)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(124, 72, 72) 100%)", buttonGradient: "linear-gradient(to top, rgb(124, 72, 72), transparent)" },
+        FMenu: { background: "rgb(172, 53, 162)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(172, 53, 162) 100%)", buttonGradient: "linear-gradient(to top, rgb(172, 53, 162), transparent)" }
     };
     const menu = document.getElementById(menuId);
     const menuButtons = document.getElementById("menuButtons");
@@ -37,6 +37,7 @@ function openMenu(menuId) {
         const mMenu = document.getElementById("MMenu");
         mMenu.style.background = "";
         mMenu.style.setProperty("--menu-gradient", "");
+        menuButtons.style.setProperty("--button-gradient", "linear-gradient(to top, #2a3439, transparent)");
         menuButtons.style.pointerEvents = "auto";
         return;
     }
@@ -55,6 +56,8 @@ function openMenu(menuId) {
             mMenu.style.transition = "background 0.3s ease, var(--menu-gradient) 0.3s ease";
             mMenu.style.background = colors[id].background;
             mMenu.style.setProperty("--menu-gradient", colors[id].gradient);
+
+            menuButtons.style.setProperty("--button-gradient", colors[id].buttonGradient);
 
             containers.forEach(container => {
                 container.style.display = 'flex';
