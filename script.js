@@ -16,10 +16,18 @@ let lastPressedCard = null;
 
 function openMenu(menuId) {
     const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
+    
     menus.forEach(id => {
         const menu = document.getElementById(id);
+        const containers = menu.querySelectorAll(".menuContainer");
+
         if (id === menuId) {
             menu.style.display = 'block';
+
+            containers.forEach(container => {
+                container.style.display = 'flex';
+            });
+
             setTimeout(() => {
                 menu.style.opacity = 1;
                 menu.style.pointerEvents = 'auto';
@@ -27,12 +35,18 @@ function openMenu(menuId) {
         } else {
             menu.style.opacity = 0;
             menu.style.pointerEvents = 'none';
+
+            containers.forEach(container => {
+                container.style.display = 'none';
+            });
+
             setTimeout(() => {
                 menu.style.display = 'none';
             }, 300);
         }
     });
 }
+
 
 function closeMenu() {
     const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
@@ -82,19 +96,9 @@ function openTutorial(element, tutorialName, totalSteps, safetyNet) {
 }
 
 function closeTutorial() {
-    const containers = [
-        "sliderContainer", "trackerContainer", "TRandomiserContainer", "andContainer", "startContainer", "signContainer", "brickContainer",
-        "orContainer", "xorContainer", "notContainer", "ARandomiserContainer", "gravityContainer", "endContainer", "cheeseContainer",
-        "iceContainer", "lavaContainer", "woodContainer", "grappleContainer", "glavaContainer", "breakingContainer", "colourContainer",
-        "bounceContainer", "frostContainer", "triggerContainer", 'editorControlsContainer', 'particlesContainer', 'sublevelsContainer',
-        'walkingContainer', 'jumpingContainer', 'grapplingContainer', 'triggerModesContainer', 'weeklySpotlightContainer', 'miniGamesContainer',
-        'awesomeSeriesContainer', 'oneOfAKindContainer', 'developerPicksContainer', 'showcaseMapsContainer', 'aChallengeContainer', 'pastCompetitionsContainer',
-        'buildContainer', 'selectionContainer', 'colorsContainer', 'ambienceContainer', 'levelContainer', 'prefabsContainer', 'otherContainer',
-        'connectingContainer', 'triggeredByContainer'
-    ];
+    const containers = document.querySelectorAll(".cardContainer");
 
-    containers.forEach(containerId => {
-        const container = document.getElementById(containerId);
+    containers.forEach(container => {
         if (container.style.opacity == 1) {
             container.style.opacity = 0;
             container.style.pointerEvents = 'none';
