@@ -1,5 +1,4 @@
 @import "https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap";
-
 .cardMain {
     transition: filter 1s linear;
     pointer-events: none;
@@ -16,6 +15,7 @@ html, body {
     background-position: center;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    font-size: 16px;
 }
 
 img {
@@ -26,29 +26,63 @@ img {
     -ms-user-select: none;
 }
 
-#topScreen {
+#mainScreen {
     background: rgb(4,47,27);
     background: linear-gradient(43deg, rgba(4,47,27,1) 0%, rgba(8,26,44,1) 100%, rgba(8,26,44,1) 100%);
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     text-align: center;
-    overflow: hidden;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     touch-action: manipulation;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+#title {
+    margin-bottom: 2rem;
+}
+
+#title h1 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+}
+
+#title h4 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+#title p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: rgb(197, 197, 197);
+    font-family: 'nunito', sans-serif;
+    font-weight: 200;
+    transform: translateY(-30px);
+}
+
+.contentText {
+    color: rgb(0, 0, 0);
+    font-family: 'nunito', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 #links {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 28px;
+    gap: 1.75rem;
     position: absolute;
-    bottom: 10px;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -62,7 +96,7 @@ img {
 
 #links a img {
     width: auto;
-    height: 50px;
+    height: 3.125rem;
     margin: 0;
 }
 
@@ -75,45 +109,6 @@ h1 {
     color: rgb(255, 255, 255);
     font-family: 'roboto', sans-serif;
     font-weight: 500;
-}
-
-#title {
-    text-align: center;
-    h4, h1 {
-        font-size: 1.5rem;
-        color: rgb(197, 197, 197);
-        font-family: 'roboto', sans-serif;
-        font-weight: 500;
-    }
-    p {
-        font-size: auto;
-        color: rgb(197, 197, 197);
-        font-family: 'nunito', sans-serif;
-        font-weight: 200;
-        transform: translateY(-30px);
-    }
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 50%;
-    border: 3px solid rgb(255, 255, 255);
-    border-radius: 25px;
-    position: relative;
-    margin: auto;
-    margin-bottom: 40px;
-    margin-top: 10px;
-    touch-action: manipulation;
-}
-
-.contentText {
-    color: rgb(0, 0, 0);
-    font-family: 'nunito', sans-serif;
-    font-weight: 500;
-    font-size: 50px;
 }
 
 #b_content {
@@ -152,18 +147,18 @@ h1 {
 
 #help {
     text-align: center;
-    height: 500px;
+    height: 31.25rem;
     width: 40%;
     position: fixed;
-    bottom: -40px;
+    bottom: -2.5rem;
     left: 50%;
     background-color: rgb(23, 23, 23);
-    border-radius: 25px;
+    border-radius: 1.5625rem;
     transform: translate(-50%, 80%);
     align-items: center;
     transition: transform 0.3s, left 0.3s, top 0.3s, opacity 0.3s;
     opacity: 0;
-    z-index: 1000;
+    z-index: 10000001;
     pointer-events: none;
     display: none;
     touch-action: manipulation;
@@ -215,7 +210,6 @@ h1 {
 
 #help.active {
     transform: translate(-50%, 40%);
-    z-index: 1000;
     transition: transform 0.3s, left 0.3s, top 0.3s;
     opacity: 1;
 }
@@ -228,7 +222,7 @@ h1 {
     width: 250px;
     text-align: center;
     opacity: 0;
-    z-index: 1000;
+    z-index: 10000001;
     pointer-events: auto;
     cursor: auto;
     display: none;
@@ -251,6 +245,40 @@ h1 {
     }
 }
 
+#MMenu {
+    height: 64px;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 10000;
+    transition: opacity 0.3s, display 0s 0.3s, background 0.3s ease, var(--menu-gradient) 0.3s ease;
+    pointer-events: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    touch-action: manipulation;
+    background: rgb(144, 207, 144);
+    --menu-gradient: linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(172, 53, 53) 100%);
+    padding: 2rem 1rem;
+}
+
+#MMenu h1.menuText {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'nunito', sans-serif;
+    font-weight: 800;
+    touch-action: manipulation;
+    margin-bottom: 2rem;
+    bottom: auto;
+    margin-top: -0.625em;
+}
+
 .menu {
     height: 100%;
     width: 100%;
@@ -260,7 +288,7 @@ h1 {
     left: 0;
     opacity: 0;
     z-index: 1000;
-    transition: opacity 0.3s, display 0s 0.3s;
+    transition: opacity 0.3s ease;
     pointer-events: none;
     display: none;
     box-sizing: border-box;
@@ -271,6 +299,10 @@ h1 {
     touch-action: manipulation;
 }
 
+.menu[style*="display: block"] {
+    opacity: 1;
+}
+
 .menuText {
     color: rgb(0, 0, 0);
     text-align: center;
@@ -279,12 +311,34 @@ h1 {
     touch-action: manipulation;
 }
 
+#MMenu {
+    background: rgb(172, 53, 53);
+}
+
+#MMenu::before {
+    background: var(--menu-gradient);
+    position: fixed;
+    transition: background 0.3s ease;
+}
+
+#MMenu .menuText {
+    bottom: 10px;
+}
+
 #BMenu {
+    background: rgb(144, 207, 144);
+}
+
+#B {
     background: rgb(144, 207, 144);
 }
 
 #EMenu {
     background: rgb(124, 72, 72);
+}
+
+#A {
+    background: #638DDD;
 }
 
 #AMenu {
@@ -295,7 +349,15 @@ h1 {
     background: rgb(172, 53, 162);
 }
 
+#F {
+    background: rgb(172, 53, 162);
+}
+
 #TMenu {
+    background: rgb(248, 153, 0);
+}
+
+#T {
     background: rgb(248, 153, 0);
 }
 
@@ -334,10 +396,6 @@ h1 {
     transform: translate(-50%, -50%);
     transition: transform 0.3s, left 0.3s, top 0.3s;
     pointer-events: auto;
-    z-index: 3;
-}
-
-.cardContainer {
     z-index: 3;
 }
 
@@ -399,7 +457,7 @@ h1 {
     left: 0;
     background-color: rgba(63, 61, 61, 0.7);
     opacity: 0;
-    z-index: 2; 
+    z-index: 10000000; 
     transition: opacity 0.3s, display 0s 0.3s;
     pointer-events: auto;
     display: none;
@@ -510,7 +568,6 @@ h1 {
     z-index: -10;
 }
 
-
 #TMenu .groupFiveContainer {
     margin-bottom: 200px;
 }
@@ -545,7 +602,7 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-.menuContainer {
+.menuContainer, #mainContainer {
     display: none;
     flex-direction: column;
     justify-content: flex-start;
@@ -557,9 +614,26 @@ h1 {
     background: rgb(4,47,27);
     background: linear-gradient(43deg, rgba(4,47,27,1) 0%, rgba(8,26,44,1) 100%, rgba(8,26,44,1) 100%);
     touch-action: manipulation;
+    top: 64px;
+    opacity: 1;
+    transition: none;
 }
 
-.menuContainer::-webkit-scrollbar {
+.menuContainer[style*="display: block"] {
+    opacity: 1;
+}
+
+#mainContainer {
+    display: block;
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    height: auto;
+    overflow-y: auto;
+}
+
+.menuContainer::-webkit-scrollbar,
+#mainContainer::-webkit-scrollbar {
     display: none;
 }
 
@@ -570,8 +644,16 @@ h1 {
     left: 0;
     width: 100%;
     height: 10px;
-    z-index: 1;
+    z-index: 10000;
     background: none;
+    transition: background 0.3s ease;
+}
+
+#MMenu::before {
+    background: var(--menu-gradient);
+    position: fixed;
+    z-index: 10000;
+    transition: background 0.3s ease;
 }
 
 #BMenu::before {
@@ -768,8 +850,218 @@ h1 {
     text-align: center;
     font-family: 'nunito', sans-serif;
     font-weight: 700;
+    font-size: 0.875rem;
+    margin-top: 1rem;
 }
 
 .gif {
     image-rendering: crisp-edges;
+}
+
+#menuButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#menuButtons button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: 'nunito', sans-serif;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    border: black solid 3px;
+}
+
+#menuButtons button:hover {
+    transform: translateY(-5px);
+}
+
+#menuButtons button.active {
+    transform: translateY(-5px);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#B {
+    background-color: rgb(144, 207, 144);
+}
+
+#E {
+    background-color: rgb(124, 72, 72);
+}
+
+#A {
+    background-color: #638DDD;
+}
+
+#T {
+    background-color: rgb(248, 153, 0);
+}
+
+#F {
+    background-color: rgb(172, 53, 162);
+}
+
+#B:hover {
+    background-color: rgb(120, 173, 120);
+}
+
+#E:hover {
+    background-color: rgb(100, 60, 60);
+}
+
+#A:hover {
+    background-color: #4f6fb3;
+}
+
+#T:hover {
+    background-color: rgb(199, 123, 0);
+}
+
+#F:hover {
+    background-color: rgb(138, 43, 130);
+}
+
+@media (max-width: 768px) {
+    #links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #title h1 {
+        font-size: 2rem;
+    }
+
+    #title h4 {
+        font-size: 1.25rem;
+    }
+
+    #title p {
+        font-size: 0.875rem;
+    }
+
+    .content {
+        height: 6rem;
+        width: 95%;
+    }
+
+    .contentText {
+        font-size: 1.75rem;
+    }
+
+    #help {
+        width: 90%;
+        height: auto;
+        bottom: -1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #links a img {
+        height: 2.5rem;
+    }
+
+    #title h1 {
+        font-size: 1.5rem;
+    }
+
+    #title h4 {
+        font-size: 1rem;
+    }
+
+    #title p {
+        font-size: 0.75rem;
+    }
+
+    .content {
+        height: 5rem;
+        width: 100%;
+    }
+
+    .contentText {
+        font-size: 1.5rem;
+    }
+
+    #help {
+        width: 95%;
+        height: auto;
+    }
+
+    #mainContent {
+        bottom: 20vw;
+    }
+}
+
+.menuContainer {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: scroll;
+    background: rgb(4,47,27);
+    background: linear-gradient(43deg, rgba(4,47,27,1) 0%, rgba(8,26,44,1) 100%, rgba(8,26,44,1) 100%);
+    touch-action: manipulation;
+    top: 64px;
+    opacity: 1;
+    transition: none;
+}
+
+.menuContainer[style*="display: block"] {
+    opacity: 1;
+}
+
+#bottomLinks {
+    position: fixed;
+    bottom: 5vw;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0rem 0;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+#links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+#standiServer {
+    font-size: 0.875rem;
+    color: rgb(197, 197, 197);
+    margin-bottom: 0.5rem;
+}
+
+#mainContent {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'nunito', sans-serif;
+    font-weight: 200;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    padding: 0rem 0;
+    top: 5vw;
+
+    h1 {
+        margin-bottom: 15%;
+    }
+
+    img {
+        width: 60%;
+        height: auto;
+        margin-bottom: 1vw;
+    }
 }

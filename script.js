@@ -16,47 +16,67 @@ let lastPressedCard = null;
 
 function openMenu(menuId) {
     const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
-    
-    menus.forEach(id => {
-        const menu = document.getElementById(id);
-        const containers = menu.querySelectorAll(".menuContainer");
+    const buttons = ["T", "B", "A", "E", "F"];
+    const colors = {
+        TMenu: { background: "rgb(248, 153, 0)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(248, 153, 0) 100%)" },
+        BMenu: { background: "rgb(144, 207, 144)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(144, 207, 144) 100%)" },
+        AMenu: { background: "#638DDD", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, #638DDD 100%)" },
+        EMenu: { background: "rgb(124, 72, 72)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(124, 72, 72) 100%)" },
+        FMenu: { background: "rgb(172, 53, 162)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(172, 53, 162) 100%)" }
+    };
+    const menu = document.getElementById(menuId);
+    const menuButtons = document.getElementById("menuButtons");
+
+    menuButtons.style.pointerEvents = "none";
+
+    if (menu.style.display === 'block') {
+        closeMenu();
+        buttons.forEach(buttonId => {
+            document.getElementById(buttonId).classList.remove("active");
+        });
+        const mMenu = document.getElementById("MMenu");
+        mMenu.style.background = "";
+        mMenu.style.setProperty("--menu-gradient", "");
+        menuButtons.style.pointerEvents = "auto";
+        return;
+    }
+
+    menus.forEach((id, index) => {
+        const currentMenu = document.getElementById(id);
+        const containers = currentMenu.querySelectorAll(".menuContainer");
+        const button = document.getElementById(buttons[index]);
 
         if (id === menuId) {
-            menu.style.display = 'block';
+            currentMenu.style.display = 'block';
+            currentMenu.style.zIndex = 1000;
+            button.classList.add("active");
+
+            const mMenu = document.getElementById("MMenu");
+            mMenu.style.transition = "background 0.3s ease, var(--menu-gradient) 0.3s ease";
+            mMenu.style.background = colors[id].background;
+            mMenu.style.setProperty("--menu-gradient", colors[id].gradient);
 
             containers.forEach(container => {
                 container.style.display = 'flex';
             });
 
-            setTimeout(() => {
-                menu.style.opacity = 1;
-                menu.style.pointerEvents = 'auto';
-            }, 10);
+            currentMenu.style.pointerEvents = 'auto';
+            menuButtons.style.pointerEvents = "auto";
         } else {
-            menu.style.opacity = 0;
-            menu.style.pointerEvents = 'none';
-
-            containers.forEach(container => {
-                container.style.display = 'none';
-            });
-
-            setTimeout(() => {
-                menu.style.display = 'none';
-            }, 300);
+            currentMenu.style.pointerEvents = 'none';
+            currentMenu.style.zIndex = '';
+            currentMenu.style.display = 'none';
+            button.classList.remove("active");
         }
     });
 }
-
 
 function closeMenu() {
     const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
     menus.forEach(menuId => {
         const menu = document.getElementById(menuId);
-        menu.style.opacity = 0;
         menu.style.pointerEvents = 'none';
-        setTimeout(() => {
-            menu.style.display = 'none';
-        }, 300);
+        menu.style.display = 'none';
     });
 }
 
