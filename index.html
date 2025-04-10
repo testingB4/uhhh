@@ -6,6 +6,7 @@
     <title>GRAB Tutorials</title>
     <link rel="icon" type="image/x-icon" href="https://github.com/StandiINF/GRAB-Tutorials/blob/main/assets/Favicon.png?raw=true">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#2a3439">
     <meta name="viewport" content="width=1000">
     <meta http-equiv="Cache-Control" content="max-age=31536000, must-revalidate">
     <meta http-equiv="Expires" content="Wed, 21 Oct 2025 07:28:00 GMT">
@@ -28,6 +29,7 @@
     <meta name="robots" content="index, follow">
 </head>
 <body>
+    <div id="MMenuGradient"></div>
     <div id="MMenu" class="menu">
         <div id="menuButtons">
             <button id="B" onclick="openMenu('BMenu')">Basics</button>
@@ -555,7 +557,16 @@
                 <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%20main.svg" alt="Sublevels%20main.svg" id="Sublevelsmain" class="cardMain sublevelsCard" loading="lazy">
             </div>
         </div>
-    </div> 
+    </div>
+
+    <div id="patchNotesContainer">
+        <h2>Patch Notes</h2>
+        <div id="patchNotes">
+            <p>Versions before this point aren't included.</p>
+            <p><span class="verison">0.01: </span>Added patch notes box (This may be removed on release) and fixed some safari layout stuff.</p>
+        </div>
+    </div>
+    <button id="patchNotesToggle">Patch Notes</button>
 
     <div id="help">
         <h2>Extra help for this step</h2>

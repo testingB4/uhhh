@@ -14,6 +14,19 @@ const helpEight = document.getElementById("helpEight");
 
 let lastPressedCard = null;
 
+const patchNotesContainer = document.getElementById("patchNotesContainer");
+const patchNotesToggle = document.getElementById("patchNotesToggle");
+
+patchNotesToggle.addEventListener("click", () => {
+    if (patchNotesContainer.style.top === "0px") {
+        patchNotesContainer.style.top = "-100%";
+        patchNotesToggle.innerText = "Patch Notes"; // Fixed text here
+    } else {
+        patchNotesContainer.style.top = "0px";
+        patchNotesToggle.innerText = "Close"; // Fixed text here
+    }
+});
+
 function openMenu(menuId) {
     const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
     const buttons = ["T", "B", "A", "E", "F"];
