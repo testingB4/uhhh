@@ -270,29 +270,6 @@ document.getElementById("help").addEventListener("click", function() {
     this.classList.toggle("active");
 });
 
-document.querySelectorAll('.tutorialGroup').forEach(group => {
-    group.addEventListener('wheel', function(event) {
-        if (event.deltaY !== 0) {
-            event.preventDefault();
-            this.scrollLeft += event.deltaY * 6;
-        }
-    });
-});
-
-document.querySelector('#EMenu .groupTwoContainer .tutorialGroup').addEventListener('wheel', function(event) {
-    if (event.deltaY !== 0) {
-        event.preventDefault();
-        this.scrollLeft += event.deltaY * 10;
-    }
-});
-
-document.querySelector('#EMenu .groupThreeContainer .tutorialGroup').addEventListener('wheel', function(event) {
-    if (event.deltaY !== 0) {
-        event.preventDefault();
-        this.scrollLeft += event.deltaY * 15;
-    }
-});
-
 document.querySelectorAll('.cardContainer').forEach(container => {
     container.addEventListener('click', function(event) {
         if (event.target === this) {
