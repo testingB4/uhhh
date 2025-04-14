@@ -20,10 +20,21 @@ const patchNotesToggle = document.getElementById("patchNotesToggle");
 patchNotesToggle.addEventListener("click", () => {
     if (patchNotesContainer.style.top === "0px") {
         patchNotesContainer.style.top = "-100%";
-        patchNotesToggle.innerText = "Patch Notes"; // Fixed text here
+        patchNotesToggle.innerText = "Patch Notes";
     } else {
         patchNotesContainer.style.top = "0px";
-        patchNotesToggle.innerText = "Close"; // Fixed text here
+        patchNotesToggle.innerText = "Close";
+    }
+});
+
+patchNotesToggle.style.display = "none";
+
+document.addEventListener("keydown", (event) => {
+    if (patchNotesToggle.style.display === "block" && (event.key === "P" || event.key === "p")) {
+        patchNotesToggle.click();
+    }
+    if (event.code === "NumpadAdd") {
+        patchNotesToggle.style.display = patchNotesToggle.style.display === "block" ? "none" : "block";
     }
 });
 
