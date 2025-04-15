@@ -328,8 +328,12 @@
                 </div>
                 <div class="tutorialGroup">
                     
-                    <div class="cardGroup FeedbackLink" onclick="window.open('https://discord.gg/J3yDuye6Uz', '_blank')">
-                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/aa24d494891c8ac87e3f645ea610477be3895e6a/assets/Placeholder%20Discord%20main.svg" alt="Placeholder.svg" class="cardMain" loading="lazy">
+                    <div id="framesGroup" class="cardGroup" onclick="openTutorial('framesContainer', 'Frames', 4)">
+                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%20main.svg" alt="Frames%20main.svg" id="Framesmain" class="cardMain framesCard" loading="lazy">
+                    </div>
+
+                    <div id="startActiveGroup" class="cardGroup" onclick="openTutorial('startActiveContainer', 'Start Active', 1, 'no')">
+                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Start%20Active/Start%20Active%20main.svg" alt="Start%20Active%20main.svg" id="StartActivemain" class="cardMain startActiveCard" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -512,6 +516,7 @@
             <p><span class="verison">0.04: </span>(Hopefully) fixed white lines on some cards.</p>
             <p><span class="verison">0.05: </span>Changed Color Main card out for a simpler version (so it loads on mobile).</p>
             <p><span class="verison">0.06: </span>Hopefully fix mobile layouts and fix some errors in the console.</p>
+            <p><span class="verison">0.07: </span>Added Frames and Start Active decks in Animation Basics.</p>
         </div>
     </div>
     <button id="patchNotesToggle" type="button">Patch Notes</button>
@@ -904,6 +909,17 @@
         <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%202.svg" alt="EditorUI-Main%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
         <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%203.svg" alt="EditorUI-Main%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
         <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%204.svg" alt="EditorUI-Main%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
+    </div>
+
+    <div id="startActiveContainer" class="cardContainer">
+        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Start%20Active/Start%20Active%201.svg" alt="Start%20Active%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+    </div>
+
+    <div id="framesContainer" class="cardContainer">
+        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%201.svg" alt="Frames%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%202.svg" alt="Frames%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%203.svg" alt="Frames%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
+        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%204.svg" alt="Frames%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
     </div>
 
     <script src="script.js"></script>

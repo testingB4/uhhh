@@ -395,3 +395,5 @@ document.querySelectorAll("#grapplingGroup img, #jumpingGroup img, #walkingGroup
         img.src = staticSrc;
     });
 });
+
+console.warn = () => {};
