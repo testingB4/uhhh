@@ -15,14 +15,16 @@ html, body {
     padding: 0;
     overflow-x: hidden;
     background: rgb(4,47,27);
-    background: linear-gradient(43deg, rgba(4,47,27,1) 0%, rgba(8,26,44,1) 100%, rgba(8,26,44,1) 100%);
+    background: #2a3439;
     background-size: cover;
-    background-position: center;
+    background-position: 50% 50%;
     -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     font-size: 16px;
-    scroll-behavior: smooth;
-    shape-rendering: crispEdges;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
 }
 
 body {
@@ -31,16 +33,17 @@ body {
     height: 100%;
     padding-top: env(safe-area-inset-top);
     padding-top: 0;
-    display: flex;
+    -ms-flex-direction: column;
     flex-direction: column;
+    display: flex;
 }
 
 img {
-    user-select: none;
     -webkit-user-drag: none;
-    -webkit-user-select: none;
     -moz-user-select: none;
+    -webkit-user-select: none;
     -ms-user-select: none;
+    user-select: none;
 }
 
 #mainScreen {
@@ -49,7 +52,9 @@ img {
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-align: center;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
@@ -58,7 +63,6 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    touch-action: manipulation;
     padding: 2rem 1rem;
     box-sizing: border-box;
 }
@@ -94,6 +98,7 @@ img {
 }
 
 #links {
+    -ms-flex-direction: flex;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -102,6 +107,8 @@ img {
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 #links a {
@@ -115,10 +122,16 @@ img {
     width: auto;
     height: 3.125rem;
     margin: 0;
+    transition: transform 0.3s ease;
 }
 
-#discord {
-    filter: invert(76%) sepia(49%) saturate(5364%) hue-rotate(199deg) brightness(89%) contrast(91%);
+#links a img#discord {
+    height: 2.5rem;
+    margin-top: 0.2rem;
+}
+
+#links a img:hover {
+    transform: scale(1.1);
 }
 
 h1 {
@@ -173,12 +186,12 @@ h1 {
     border-radius: 1.5625rem;
     transform: translate(-50%, 80%);
     align-items: center;
+    -ms-flex-align: center;
     transition: transform 0.3s, left 0.3s, top 0.3s, opacity 0.3s;
     opacity: 0;
     z-index: 10000001;
     pointer-events: none;
     display: none;
-    touch-action: manipulation;
 
     h2 {
         color: white;
@@ -286,11 +299,13 @@ h1 {
     pointer-events: auto;
     box-sizing: border-box;
     display: flex;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    touch-action: manipulation;
     background: #2a3439;
     --menu-gradient: linear-gradient(to top, rgba(255, 251, 251, 0) 0%, #2a3439 100%);
     padding: 2rem 1rem;
@@ -301,7 +316,6 @@ h1 {
     text-align: center;
     font-family: 'nunito', sans-serif;
     font-weight: 800;
-    touch-action: manipulation;
     margin-bottom: 2rem;
     bottom: auto;
     margin-top: -0.625em;
@@ -321,10 +335,13 @@ h1 {
     display: none;
     box-sizing: border-box;
     display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    touch-action: manipulation;
 }
 
 .menu[style*="display: block"] {
@@ -336,7 +353,6 @@ h1 {
     text-align: center;
     font-family: 'nunito', sans-serif;
     font-weight: 800;
-    touch-action: manipulation;
 }
 
 #MMenu::before {
@@ -422,7 +438,6 @@ h1 {
     transition: transform 0.3s, left 0.3s, top 0.3s;
     pointer-events: auto;
     z-index: 3;
-    touch-action: manipulation;
 }
 
 .cardOne {
@@ -435,7 +450,6 @@ h1 {
     transform: translate(-50%, -50%) scale(1.4);
     pointer-events: none;
     z-index: 3;
-    touch-action: manipulation;
 }
 
 .cardOne.active {
@@ -509,7 +523,6 @@ h1 {
     z-index: 2;
     flex-shrink: 0;
     transition: transform 0.3s ease;
-    touch-action: manipulation;
 }
 
 .cardGroup:hover {
@@ -618,7 +631,6 @@ h1 {
     border-radius: 360px;
     background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    touch-action: manipulation;
 }
 
 .back img {
@@ -632,7 +644,10 @@ h1 {
 
 .menuContainer, #mainContainer {
     display: none;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
@@ -641,7 +656,6 @@ h1 {
     overflow: scroll;
     background: rgb(4,47,27);
     background: linear-gradient(43deg, rgba(4,47,27,1) 0%, rgba(8,26,44,1) 100%, rgba(8,26,44,1) 100%);
-    touch-action: manipulation;
     top: 64px;
     opacity: 1;
     transition: none;
@@ -725,9 +739,12 @@ h1 {
     overflow-x: auto;
     overflow-y: auto;
     display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
-    scroll-behavior: smooth;
 }
 
 .tutorialGroup > div {
@@ -882,9 +899,6 @@ h1 {
     margin-top: 1rem;
 }
 
-.gif {
-    image-rendering: crisp-edges;
-}
 
 #menuButtons {
     display: flex;
@@ -899,7 +913,7 @@ h1 {
     padding-right: 20px;
     padding-top: 20px;
     top: 10px;
-    clip-path: inset(0px 0px 0px 0px); 
+    clip: rect(0px, auto, auto, 0px);
 }
 
 #menuButtons::after {
@@ -992,6 +1006,7 @@ h1 {
     }
 
     #links {
+        -ms-flex-direction: column;
         flex-direction: column;
         gap: 1rem;
     }
@@ -1058,7 +1073,10 @@ h1 {
 
 .menuContainer {
     display: none;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
@@ -1067,7 +1085,6 @@ h1 {
     overflow: scroll;
     background: rgb(4,47,27);
     background: linear-gradient(43deg, rgba(4,47,27,1) 0%, rgba(8,26,44,1) 100%, rgba(8,26,44,1) 100%);
-    touch-action: manipulation;
     top: 64px;
     opacity: 1;
     transition: none;
@@ -1145,7 +1162,7 @@ h1 {
     margin: 0;
     font-size: 1.5rem;
     font-weight: 700;
-    position: sticky;
+    position: fixed;
     top: 0;
     background-color: rgba(42, 52, 57, 0.95);
     z-index: 1;
@@ -1175,7 +1192,7 @@ h1 {
     position: fixed;
     top: 10px;
     right: 10px;
-    background-color: #2a343900;
+    background-color: rgba(42, 52, 57, 0);
     color: white;
     border: none;
     border-radius: 5px;
@@ -1188,6 +1205,6 @@ h1 {
 }
 
 #patchNotesToggle:hover {
-    background-color: #1e282c54;
+    background-color: rgba(30, 40, 44, 0.33);
 }
 
