@@ -17,6 +17,8 @@ let lastPressedCard = null;
 const patchNotesContainer = document.getElementById("patchNotesContainer");
 const patchNotesToggle = document.getElementById("patchNotesToggle");
 
+// patch notes appear thing
+
 patchNotesToggle.addEventListener("click", () => {
     if (patchNotesContainer.style.top === "0px") {
         patchNotesContainer.style.top = "-100%";
@@ -29,6 +31,8 @@ patchNotesToggle.addEventListener("click", () => {
 
 patchNotesToggle.style.display = "none";
 
+// open / close when press numpad +
+
 document.addEventListener("keydown", (event) => {
     if (patchNotesToggle.style.display === "block" && (event.key === "P" || event.key === "p")) {
         patchNotesToggle.click();
@@ -37,6 +41,8 @@ document.addEventListener("keydown", (event) => {
         patchNotesToggle.style.display = patchNotesToggle.style.display === "block" ? "none" : "block";
     }
 });
+
+// menu opening / closing
 
 function openMenu(menuId) {
     const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
@@ -107,15 +113,19 @@ function closeMenu() {
     });
 }
 
+// safety nets to prevent accidental closing
+
 function moveSafetyNets(container) {
     const safetyNets = document.getElementById("safetyNets");
     container.appendChild(safetyNets);
 }
 
 function oneCardSafetyNet(container) {
-    const safetyNet = document.getElementById("oneCard")
+    const safetyNet = document.getElementById("oneCard") // if the deck only has one card
     container.appendChild(safetyNet);
 }
+
+// open the decks! (also open help and text containers)
 
 function openTutorial(element, tutorialName, totalSteps, safetyNet) {
     help.style.display = 'block';
@@ -203,6 +213,8 @@ function closeTutorial() {
     });
 }
 
+// card flicking
+
 document.querySelectorAll(".card").forEach((card, index) => {
     card.addEventListener("click", function() {
         const active = document.querySelector(".card.active");
@@ -289,6 +301,22 @@ document.querySelectorAll('.cardContainer').forEach(container => {
     });
 });
 
+document.querySelectorAll(".cardContainer").forEach(container => {
+    const cards = container.querySelectorAll(".card, .cardOne");
+    if (cards.length === 2) {
+        cards[1].addEventListener("click", () => {
+            const rightSafetyNet = document.getElementById("safetyNetRight");
+            if (rightSafetyNet) {
+                setTimeout(() => {
+                    rightSafetyNet.style.display = "none";
+                }, 500);
+            }
+        });
+    }
+});
+
+// help menu stuff
+
 function showHelp(helpId) {
     const helpElements = [helpOne, helpTwo, helpThree, helpFour, helpFive, helpSix, helpSeven, helpEight];
     helpElements.forEach(helpElement => {
@@ -333,6 +361,8 @@ document.querySelectorAll(".helpSeven").forEach(element => {
 document.querySelectorAll(".helpEight").forEach(element => {
     element.addEventListener("click", () => showHelp("helpEight"));
 });
+
+// randomiser hover changey thingy
 
 document.getElementById("TRandomiserGroup").addEventListener("mouseenter", () => {
     const colors = ["TRandomiserPurple", "TRandomiserRed", "TRandomiserGreen", "TRandomiserYellow"];
@@ -382,18 +412,40 @@ document.getElementById("ARandomiserGroup").addEventListener("mouseleave", () =>
     });
 });
 
-document.querySelectorAll("#grapplingGroup img, #jumpingGroup img, #walkingGroup img, triggerModesGroup img").forEach(img => {
-    const staticSrc = img.src;
-    const gifSrc = img.src.replace("main.svg", "gif.gif");
+// hover restarting gifs
 
-    img.addEventListener("mouseenter", () => {
-        img.src = "";
-        img.src = gifSrc;
-    });
-
-    img.addEventListener("mouseleave", () => {
-        img.src = staticSrc;
+document.querySelectorAll(".cardGroup").forEach(group => {
+    group.addEventListener("mouseenter", () => {
+        const gifs = group.querySelectorAll("img.gif");
+        gifs.forEach(gif => {
+            const src = gif.src;
+            gif.src = "";
+            gif.src = src;
+        });
     });
 });
 
-console.warn = () => {};
+// disables hover effects on touch devices
+
+function hasTouch() {
+    return 'ontouchstart' in document.documentElement
+           || navigator.maxTouchPoints > 0
+           || navigator.msMaxTouchPoints > 0;
+  }
+  
+  if (hasTouch()) {
+    try {
+      for (var si in document.styleSheets) {
+        var styleSheet = document.styleSheets[si];
+        if (!styleSheet.rules) continue;
+  
+        for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+          if (!styleSheet.rules[ri].selectorText) continue;
+  
+          if (styleSheet.rules[ri].selectorText.match(':hover')) {
+            styleSheet.deleteRule(ri);
+          }
+        }
+      }
+    } catch (ex) {}
+  }

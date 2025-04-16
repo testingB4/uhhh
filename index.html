@@ -6,7 +6,7 @@
     <title>GRAB Tutorials</title>
     <link href="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=1000, initial-scale=0.39">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, must-revalidate">
     <meta name="author" content="Standi">
     <meta name="keywords" content="GRABVR, GRAB, Tutorials, Standi, vestria, K1dfun, Animation, Editor, Basics, Trigger, Features, VR, Virtual Reality, GitHub, coding">
@@ -516,6 +516,8 @@
             <p><span class="verison">0.06: </span>Hopefully fix mobile layouts and fix some errors in the console.</p>
             <p><span class="verison">0.07: </span>Added Frames and Start Active decks in Animation Basics.</p>
             <p><span class="verison">0.08: </span>Did some favicon stuff.</p>
+            <p><span class="verison">0.09: </span>Make gifs restart on hover & reduce blurriness when cards scale up.</p>
+            <p><span class="verison">0.10: </span>Reconfigured everything for mobile devices (disabling hover effects and scales) to work better overall. Cards with pngs are blurry.</p>
         </div>
     </div>
     <button id="patchNotesToggle" type="button">Patch Notes</button>
@@ -547,378 +549,383 @@
         <p id="num">a/b</p>
     </div>
 
-    <div id="grapplingContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Grappling/Grappling%201.svg" alt="Grappling%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+    <div name="cardDecks">
 
-    <div id="jumpingContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Jumping/Jumping%201.svg" alt="Jumping%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <!-- this could probably be dulled down into javascript but i cant be bothered 🤑 -->
 
-    <div id="walkingContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Walking/Walking%201.svg" alt="Walking%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="grapplingContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Grappling/Grappling%201.svg" alt="Grappling%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="weeklySpotlightContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Weekly%20Spotlight/Weekly%201.svg" alt="Weekly%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="jumpingContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Jumping/Jumping%201.svg" alt="Jumping%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="miniGamesContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Mini%20Games/Minigames%201.svg" alt="Minigames%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="walkingContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Walking/Walking%201.svg" alt="Walking%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="awesomeSeriesContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Awesome%20Series/Awesome%20Series%201.svg" alt="Awesome%20Series%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="weeklySpotlightContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Weekly%20Spotlight/Weekly%201.svg" alt="Weekly%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="oneOfAKindContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/One%20of%20a%20Kind/OOAK%201.svg" alt="OOAK%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="miniGamesContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Mini%20Games/Minigames%201.svg" alt="Minigames%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="developerPicksContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Developer%20Picks/Dev%20Picks%201.svg" alt="Dev%20Picks%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="awesomeSeriesContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Awesome%20Series/Awesome%20Series%201.svg" alt="Awesome%20Series%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="showcaseMapsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Showcase%20Maps/Showcase%201.svg" alt="Showcase%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="oneOfAKindContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/One%20of%20a%20Kind/OOAK%201.svg" alt="OOAK%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="aChallengeContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/A%20Challenge/Challenge%201.svg" alt="Challenge%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="developerPicksContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Developer%20Picks/Dev%20Picks%201.svg" alt="Dev%20Picks%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="pastCompetitionsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Past%20Competitions/Past%20Competitions%201.svg" alt="Past%20Competitions%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="showcaseMapsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Showcase%20Maps/Showcase%201.svg" alt="Showcase%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="otherContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/b731733451ec089f6ebdbe18af9be83ef7d0c0cd/assets/Wrist%20menu/Other/Other%201.svg" alt="Other%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Other/Other%202.svg" alt="Other%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Other/Other%203.svg" alt="Other%203.svg" class="card cardFour indexThree helpOne" loading="lazy">
-    </div>
+        <div id="aChallengeContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/A%20Challenge/Challenge%201.svg" alt="Challenge%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="prefabsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Prefabs/Prefabs%201.svg" alt="Prefabs%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="pastCompetitionsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Best%20of%20GRAB/Past%20Competitions/Past%20Competitions%201.svg" alt="Past%20Competitions%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="levelContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Level/Level%201.svg" alt="Level%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="otherContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/b731733451ec089f6ebdbe18af9be83ef7d0c0cd/assets/Wrist%20menu/Other/Other%201.svg" alt="Other%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Other/Other%202.svg" alt="Other%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Other/Other%203.svg" alt="Other%203.svg" class="card cardFour indexThree helpOne" loading="lazy">
+        </div>
 
-    <div id="ambienceContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Ambience/Ambience%201.svg" alt="Ambience%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
-    
-    <div id="colorsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%201.svg" alt="Colors%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%202.svg" alt="Colors%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%203.svg" alt="Colors%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%204.svg" alt="Colors%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%205.svg" alt="Colors%205.svg" class="card cardThree indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%206.svg" alt="Colors%206.svg" class="card cardFour indexSix helpOne" loading="lazy">
-    </div>
+        <div id="prefabsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Prefabs/Prefabs%201.svg" alt="Prefabs%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="selectionContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Selection/Selection%201.svg" alt="Selection%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="levelContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Level/Level%201.svg" alt="Level%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="buildContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Build/Build%201.svg" alt="Build%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="ambienceContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Ambience/Ambience%201.svg" alt="Ambience%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
+        
+        <div id="colorsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%201.svg" alt="Colors%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%202.svg" alt="Colors%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%203.svg" alt="Colors%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%204.svg" alt="Colors%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%205.svg" alt="Colors%205.svg" class="card cardThree indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Colors/Colors%206.svg" alt="Colors%206.svg" class="card cardFour indexSix helpOne" loading="lazy">
+        </div>
 
-    <div id="startContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Start/Start%201.svg" alt="Start%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="selectionContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Selection/Selection%201.svg" alt="Selection%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="endContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/End/End%201.svg" alt="End%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="buildContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Wrist%20menu/Build/Build%201.svg" alt="Build%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="signContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Sign/Sign%201.svg" alt="Sign%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="startContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Start/Start%201.svg" alt="Start%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="gravityContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%201.svg" alt="Gravity%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%202.svg" alt="Gravity%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%203.svg" alt="Gravity%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%204.svg" alt="Gravity%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
-    </div>
+        <div id="endContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/End/End%201.svg" alt="End%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="brickContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Brick/Brick%201.svg" alt="Brick%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="signContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Sign/Sign%201.svg" alt="Sign%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="cheeseContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Cheese/Cheese%201.svg" alt="Cheese%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="gravityContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%201.svg" alt="Gravity%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%202.svg" alt="Gravity%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%203.svg" alt="Gravity%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Gravity/Gravity%204.svg" alt="Gravity%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
+        </div>
 
-    <div id="iceContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Ice/Ice%201.svg" alt="Ice%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="brickContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Brick/Brick%201.svg" alt="Brick%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="lavaContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Lava/Lava%201.svg" alt="Lava%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Lava/Lava%202.svg" alt="Lava%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-    </div>
+        <div id="cheeseContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Cheese/Cheese%201.svg" alt="Cheese%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="woodContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Wood/Wood%201.svg" alt="Wood%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="iceContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Ice/Ice%201.svg" alt="Ice%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="grappleContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Grapple/Grapple%201.svg" alt="Grapple%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="lavaContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Lava/Lava%201.svg" alt="Lava%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Lava/Lava%202.svg" alt="Lava%202.svg" class="card cardTwo cardFourindexTwo helpOne" loading="lazy">
+        </div>
 
-    <div id="glavaContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/GLava/GLava%201.svg" alt="GLava%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="woodContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Wood/Wood%201.svg" alt="Wood%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="breakingContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Breaking/Breaking%201.svg" alt="Breaking%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Breaking/Breaking%202.svg" alt="Breaking%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-    </div>
+        <div id="grappleContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Grapple/Grapple%201.svg" alt="Grapple%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="colorContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Color/Color%201.svg" alt="Color%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="glavaContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/GLava/GLava%201.svg" alt="GLava%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="bounceContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9099d9e903989d92e92ba148e903e89a058d4749/assets/Editor%20blocks/Bounce/Bounce%201.svg" alt="Bounce%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="breakingContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Breaking/Breaking%201.svg" alt="Breaking%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Breaking/Breaking%202.svg" alt="Breaking%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+        </div>
 
-    <div id="frostContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9099d9e903989d92e92ba148e903e89a058d4749/assets/Editor%20blocks/Frost/Frost%201.svg" alt="Frost%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="colorContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Color/Color%201.svg" alt="Color%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="triggerTutContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Trigger/Trigger%201.svg" alt="Trigger%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="bounceContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9099d9e903989d92e92ba148e903e89a058d4749/assets/Editor%20blocks/Bounce/Bounce%201.svg" alt="Bounce%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="editorControlsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%201.svg" alt="EControls%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%202.svg" alt="EControls%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%203.svg" alt="EControls%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%204.svg" alt="EControls%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%205.svg" alt="EControls%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%206.svg" alt="EControls%206.svg" class="card indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%207.svg" alt="EControls%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%208.svg" alt="EControls%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
-    </div>
+        <div id="frostContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9099d9e903989d92e92ba148e903e89a058d4749/assets/Editor%20blocks/Frost/Frost%201.svg" alt="Frost%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="ARandomiserContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%201.svg" alt="Animation%20randomiser%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%202.svg" alt="Animation%20randomiser%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy"> 
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%203.svg" alt="Animation%20randomiser%203.svg" class="card indexThree helpEight" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%204.svg" alt="Animation%20randomiser%204.svg" class="card indexFour helpEight" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%205.svg" alt="Animation%20randomiser%205.svg" class="card cardThree indexFive helpEight" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%206.svg" alt="Animation%20randomiser%206.svg" class="card cardFour indexSix helpOne" loading="lazy">
-    </div>
+        <div id="triggerTutContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20blocks/Trigger/Trigger%201.svg" alt="Trigger%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="triggeredByContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Triggered%20by/Triggered%20by%201.svg" alt="Triggered%20by%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="editorControlsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%201.svg" alt="EControls%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%202.svg" alt="EControls%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%203.svg" alt="EControls%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%204.svg" alt="EControls%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%205.svg" alt="EControls%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%206.svg" alt="EControls%206.svg" class="card indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%207.svg" alt="EControls%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Editor%20controls/EControls%208.svg" alt="EControls%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
+        </div>
 
-    <div id="connectingContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Connecting/Connecting%201.svg" alt="Connecting%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Connecting/Connecting%202.svg" alt="Connecting%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Connecting/Connecting%203.svg" alt="Connecting%203.svg" class="card cardFour indexThree helpOne" loading="lazy">
-    </div>
+        <div id="ARandomiserContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%201.svg" alt="Animation%20randomiser%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%202.svg" alt="Animation%20randomiser%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy"> 
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%203.svg" alt="Animation%20randomiser%203.svg" class="card indexThree helpEight" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%204.svg" alt="Animation%20randomiser%204.svg" class="card indexFour helpEight" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%205.svg" alt="Animation%20randomiser%205.svg" class="card cardThree indexFive helpEight" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/e07532b9dca2ca98791d5c0883461a93be4277f3/assets/Animation%20randomiser/Animation%20randomiser%206.svg" alt="Animation%20randomiser%206.svg" class="card cardFour indexSix helpOne" loading="lazy">
+        </div>
 
-    <div id="triggerModesContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%201.svg" alt="Modes%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%202.svg" alt="Modes%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%203.svg" alt="Modes%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%204.svg" alt="Modes%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%205.svg" alt="Modes%205.svg" class="card cardThree indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%206.svg" alt="Modes%206.svg" class="card cardFour indexSix helpOne" loading="lazy">
-    </div>
-    
-    <div id="sliderContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%201.svg" alt="Slider%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%202.svg" alt="Slider%202.svg" class="card cardTwo indexTwo helpTwo" loading="lazy"> 
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%203.svg" alt="Slider%203.svg" class="card indexThree helpTwo" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%204.svg" alt="Slider%204.svg" class="card indexFour helpThree" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%205.svg" alt="Slider%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%206.svg" alt="Slider%206.svg" class="card indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%207.svg" alt="Slider%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%208.svg" alt="Slider%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
-    </div>
+        <div id="triggeredByContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Triggered%20by/Triggered%20by%201.svg" alt="Triggered%20by%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="trackerContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%201.svg" alt="Tracker%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%202.svg" alt="Tracker%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%203.svg" alt="Tracker%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%204.svg" alt="Tracker%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%205.svg" alt="Tracker%205.svg" class="card indexFive helpFive" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%206.svg" alt="Tracker%206.svg" class="card indexSix helpFour" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%207.svg" alt="Tracker%207.svg" class="card indexSeven helpFour" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%208.svg" alt="Tracker%208.svg" class="card indexEight helpFour" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%209.svg" alt="Tracker%209.svg" class="card indexNine helpFour" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%2010.svg" alt="Tracker%2010.svg" class="card cardThree indexTen helpFour" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%2011.svg" alt="Tracker%2011.svg" class="card cardFour indexEleven helpOne" loading="lazy">
-    </div>
+        <div id="connectingContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Connecting/Connecting%201.svg" alt="Connecting%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Connecting/Connecting%202.svg" alt="Connecting%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Connecting/Connecting%203.svg" alt="Connecting%203.svg" class="card cardFour indexThree helpOne" loading="lazy">
+        </div>
 
-    <div id="TRandomiserContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20randomiser/Trigger%20randomiser%201.svg" alt="Trigger%20randomiser%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%202.svg" alt="Trigger%20randomiser%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy"> 
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%203.svg" alt="Trigger%20randomiser%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%204.svg" alt="Trigger%20randomiser%204.svg" class="card indexFour helpSix" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%205.svg" alt="Trigger%20randomiser%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%206.svg" alt="Trigger%20randomiser%206.svg" class="card indexSix helpSeven" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%207.svg" alt="Trigger%20randomiser%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%208.svg" alt="Trigger%20randomiser%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
-    </div>
+        <div id="triggerModesContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%201.svg" alt="Modes%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%202.svg" alt="Modes%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%203.svg" alt="Modes%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%204.svg" alt="Modes%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%205.svg" alt="Modes%205.svg" class="card cardThree indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20modes/Modes%206.svg" alt="Modes%206.svg" class="card cardFour indexSix helpOne" loading="lazy">
+        </div>
+        
+        <div id="sliderContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%201.svg" alt="Slider%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%202.svg" alt="Slider%202.svg" class="card cardTwo indexTwo helpTwo" loading="lazy"> 
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%203.svg" alt="Slider%203.svg" class="card indexThree helpTwo" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%204.svg" alt="Slider%204.svg" class="card indexFour helpThree" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%205.svg" alt="Slider%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%206.svg" alt="Slider%206.svg" class="card indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%207.svg" alt="Slider%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/Slider%208.svg" alt="Slider%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
+        </div>
 
-    <div id="andContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%201.svg" alt="AND%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%202.svg" alt="AND%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%203.svg" alt="AND%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%204.svg" alt="AND%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%205.svg" alt="AND%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%206.svg" alt="AND%206.svg" class="card indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%207.svg" alt="AND%207.svg" class="card indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%208.svg" alt="AND%208.svg" class="card cardThree indexEight helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%209.svg" alt="AND%209.svg" class="card cardFour indexNine helpOne" loading="lazy">
-    </div>
+        <div id="trackerContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%201.svg" alt="Tracker%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%202.svg" alt="Tracker%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%203.svg" alt="Tracker%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%204.svg" alt="Tracker%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%205.svg" alt="Tracker%205.svg" class="card indexFive helpFive" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%206.svg" alt="Tracker%206.svg" class="card indexSix helpFour" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%207.svg" alt="Tracker%207.svg" class="card indexSeven helpFour" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%208.svg" alt="Tracker%208.svg" class="card indexEight helpFour" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%209.svg" alt="Tracker%209.svg" class="card indexNine helpFour" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%2010.svg" alt="Tracker%2010.svg" class="card cardThree indexTen helpFour" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/trackers/Tracker%2011.svg" alt="Tracker%2011.svg" class="card cardFour indexEleven helpOne" loading="lazy">
+        </div>
 
-    <div id="orContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/b202ad3d7bc35e13142e5db074fdafbf7027cfff/assets/logic/OR/OR%201.svg" alt="OR%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%202.svg" alt="OR%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%203.svg" alt="OR%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%204.svg" alt="OR%204.svg" class="card indexFour helpThree" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%205.svg" alt="OR%205.svg" class="card indexFive helpThree" loading="lazy"> 
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%206.svg" alt="OR%206.svg" class="card indexSix helpFour" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%207.svg" alt="OR%207.svg" class="card indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%208.svg" alt="OR%208.svg" class="card cardThree indexEight helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%209.svg" alt="OR%209.svg" class="card cardFour indexNine helpOne" loading="lazy">
-    </div>
+        <div id="TRandomiserContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Trigger%20randomiser/Trigger%20randomiser%201.svg" alt="Trigger%20randomiser%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%202.svg" alt="Trigger%20randomiser%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy"> 
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%203.svg" alt="Trigger%20randomiser%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%204.svg" alt="Trigger%20randomiser%204.svg" class="card indexFour helpSix" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%205.svg" alt="Trigger%20randomiser%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%206.svg" alt="Trigger%20randomiser%206.svg" class="card indexSix helpSeven" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%207.svg" alt="Trigger%20randomiser%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/f9349b34d20c25c96dbcbf9f171354f985a9b770/assets/Trigger%20randomiser/Trigger%20randomiser%208.svg" alt="Trigger%20randomiser%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
+        </div>
 
-    <div id="xorContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%201.svg" alt="XOR%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%202.svg" alt="XOR%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%203.svg" alt="XOR%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%204.svg" alt="XOR%204.svg" class="card indexFour helpThree" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%205.svg" alt="XOR%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%206.svg" alt="XOR%206.svg" class="card indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%207.svg" alt="XOR%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%208.svg" alt="XOR%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
-    </div>
+        <div id="andContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%201.svg" alt="AND%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%203.svg" alt="AND%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%204.svg" alt="AND%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%205.svg" alt="AND%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%206.svg" alt="AND%206.svg" class="card indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%207.svg" alt="AND%207.svg" class="card indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%208.svg" alt="AND%208.svg" class="card cardThree indexEight helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/logic/AND/AND%209.svg" alt="AND%209.svg" class="card cardFour indexNine helpOne" loading="lazy">
+        </div>
 
-    <div id="notContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%201.svg" alt="NOT%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%202.svg" alt="NOT%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%203.svg" alt="NOT%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%204.svg" alt="NOT%204.svg" class="card indexFour helpThree" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%205.svg" alt="NOT%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%206.svg" alt="NOT%206.svg" class="card indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%207.svg" alt="NOT%207.svg" class="card indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%208.svg" alt="NOT%208.svg" class="card cardThree indexEight helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%209.svg" alt="NOT%209.svg" class="card cardFour indexNine helpOne" loading="lazy">
-    </div>
+        <div id="orContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/b202ad3d7bc35e13142e5db074fdafbf7027cfff/assets/logic/OR/OR%201.svg" alt="OR%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%202.svg" alt="OR%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%203.svg" alt="OR%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%204.svg" alt="OR%204.svg" class="card indexFour helpThree" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%205.svg" alt="OR%205.svg" class="card indexFive helpThree" loading="lazy"> 
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%206.svg" alt="OR%206.svg" class="card indexSix helpFour" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%207.svg" alt="OR%207.svg" class="card indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%208.svg" alt="OR%208.svg" class="card cardThree indexEight helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/9ee2d1314e97e46e669254303b0b7257dbf56c54/assets/logic/OR/OR%209.svg" alt="OR%209.svg" class="card cardFour indexNine helpOne" loading="lazy">
+        </div>
 
-    <div id="particlesContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%201.svg" alt="Particles%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%202.svg" alt="Particles%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%203.svg" alt="Particles%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%204.svg" alt="Particles%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%205.svg" alt="Particles%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%206.svg" alt="Particles%206.svg" class="card indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%207.svg" alt="Particles%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%208.svg" alt="Particles%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
-    </div>
+        <div id="xorContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%201.svg" alt="XOR%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%202.svg" alt="XOR%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%203.svg" alt="XOR%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%204.svg" alt="XOR%204.svg" class="card indexFour helpThree" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%205.svg" alt="XOR%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%206.svg" alt="XOR%206.svg" class="card indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%207.svg" alt="XOR%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/a4789e93a9ba9378ceb32ac9db3b3c5ffc941111/assets/logic/XOR/XOR%208.svg" alt="XOR%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
+        </div>
 
-    <div id="sublevelsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%201.svg" alt="Sublevels%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%202.svg" alt="Sublevels%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%203.svg" alt="Sublevels%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%204.svg" alt="Sublevels%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%205.svg" alt="Sublevels%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%206.svg" alt="Sublevels%206.svg" class="card cardThree indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%207.svg" alt="Sublevels%207.svg" class="card cardFour indexSeven helpOne" loading="lazy">
-    </div>
+        <div id="notContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%201.svg" alt="NOT%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%202.svg" alt="NOT%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%203.svg" alt="NOT%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%204.svg" alt="NOT%204.svg" class="card indexFour helpThree" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%205.svg" alt="NOT%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%206.svg" alt="NOT%206.svg" class="card indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%207.svg" alt="NOT%207.svg" class="card indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%208.svg" alt="NOT%208.svg" class="card cardThree indexEight helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/7c3ed3fa8b81239824835d9b264b3fd545a86b4f/assets/logic/NOT/NOT%209.svg" alt="NOT%209.svg" class="card cardFour indexNine helpOne" loading="lazy">
+        </div>
 
-    <div id="isSharedContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Is%20Shared/Is%20Shared%201.svg" alt="Is%20Shared%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="particlesContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%201.svg" alt="Particles%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%202.svg" alt="Particles%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%203.svg" alt="Particles%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%204.svg" alt="Particles%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%205.svg" alt="Particles%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%206.svg" alt="Particles%206.svg" class="card indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%207.svg" alt="Particles%207.svg" class="card cardThree indexSeven helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%208.svg" alt="Particles%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
+        </div>
 
-    <div id="terminalContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/Terminal/Terminal%201.svg" alt="Terminal%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/Terminal/Terminal%202.svg" alt="Terminal%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-    </div>
+        <div id="sublevelsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%201.svg" alt="Sublevels%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%202.svg" alt="Sublevels%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%203.svg" alt="Sublevels%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%204.svg" alt="Sublevels%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%205.svg" alt="Sublevels%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%206.svg" alt="Sublevels%206.svg" class="card cardThree indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%207.svg" alt="Sublevels%207.svg" class="card cardFour indexSeven helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-cameraContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Camera/UI-Camera%201.svg" alt="UI-Camera%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Camera/UI-Camera%202.svg" alt="UI-Camera%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-    </div>
+        <div id="isSharedContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Is%20Shared/Is%20Shared%201.svg" alt="Is%20Shared%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-characterContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%201.svg" alt="UI-Character%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%202.svg" alt="UI-Character%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%203.svg" alt="UI-Character%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%204.svg" alt="UI-Character%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%205.svg" alt="UI-Character%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%206.svg" alt="UI-Character%206.svg" class="card cardThree indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%207.svg" alt="UI-Character%207.svg" class="card cardFour indexSeven helpOne" loading="lazy">
-    </div>
+        <div id="terminalContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/Terminal/Terminal%201.svg" alt="Terminal%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/Terminal/Terminal%202.svg" alt="Terminal%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-coinsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Coins/UI-Coins%201.svg" alt="UI-Coins%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="ui-cameraContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Camera/UI-Camera%201.svg" alt="UI-Camera%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Camera/UI-Camera%202.svg" alt="UI-Camera%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-levelsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%201.svg" alt="UI-Levels%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%202.svg" alt="UI-Levels%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%203.svg" alt="UI-Levels%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%204.svg" alt="UI-Levels%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
-    </div>
+        <div id="ui-characterContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%201.svg" alt="UI-Character%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%202.svg" alt="UI-Character%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%203.svg" alt="UI-Character%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%204.svg" alt="UI-Character%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%205.svg" alt="UI-Character%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%206.svg" alt="UI-Character%206.svg" class="card cardThree indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Character/UI-Character%207.svg" alt="UI-Character%207.svg" class="card cardFour indexSeven helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-mainContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%201.svg" alt="UI-Main%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%202.svg" alt="UI-Main%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%203.svg" alt="UI-Main%203.svg" class="card indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%204.svg" alt="UI-Main%204.svg" class="card indexFour helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%205.svg" alt="UI-Main%205.svg" class="card indexFive helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%206.svg" alt="UI-Main%206.svg" class="card cardThree indexSix helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%207.svg" alt="UI-Main%207.svg" class="card cardFour indexSeven helpOne" loading="lazy">
-    </div>
+        <div id="ui-coinsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Coins/UI-Coins%201.svg" alt="UI-Coins%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-mainmenuContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-MainMenu/UI-MainMenu%201.svg" alt="UI-MainMenu%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="ui-levelsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%201.svg" alt="UI-Levels%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%202.svg" alt="UI-Levels%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%203.svg" alt="UI-Levels%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Levels/UI-Levels%204.svg" alt="UI-Levels%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-rulesContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Rules/UI-Rules%201.svg" alt="UI-Rules%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Rules/UI-Rules%202.svg" alt="UI-Rules%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-    </div>
+        <div id="ui-mainContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%201.svg" alt="UI-Main%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%202.svg" alt="UI-Main%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%203.svg" alt="UI-Main%203.svg" class="card indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%204.svg" alt="UI-Main%204.svg" class="card indexFour helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%205.svg" alt="UI-Main%205.svg" class="card indexFive helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%206.svg" alt="UI-Main%206.svg" class="card cardThree indexSix helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Main/UI-Main%207.svg" alt="UI-Main%207.svg" class="card cardFour indexSeven helpOne" loading="lazy">
+        </div>
 
-    <div id="ui-settingsContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%201.svg" alt="UI-Settings%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%202.svg" alt="UI-Settings%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%203.svg" alt="UI-Settings%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%204.svg" alt="UI-Settings%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
-    </div>
+        <div id="ui-mainmenuContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-MainMenu/UI-MainMenu%201.svg" alt="UI-MainMenu%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="editorui-openContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Open/EditorUI-Open%201.svg" alt="EditorUI-Open%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="ui-rulesContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Rules/UI-Rules%201.svg" alt="UI-Rules%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Rules/UI-Rules%202.svg" alt="UI-Rules%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+        </div>
 
-    <div id="editorui-mainContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%201.svg" alt="EditorUI-Main%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%202.svg" alt="EditorUI-Main%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%203.svg" alt="EditorUI-Main%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%204.svg" alt="EditorUI-Main%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
-    </div>
+        <div id="ui-settingsContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%201.svg" alt="UI-Settings%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%202.svg" alt="UI-Settings%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%203.svg" alt="UI-Settings%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Basics/UI-Settings/UI-Settings%204.svg" alt="UI-Settings%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
+        </div>
 
-    <div id="startActiveContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Start%20Active/Start%20Active%201.svg" alt="Start%20Active%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-    </div>
+        <div id="editorui-openContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Open/EditorUI-Open%201.svg" alt="EditorUI-Open%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
 
-    <div id="framesContainer" class="cardContainer">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%201.svg" alt="Frames%201.svg" class="cardOne indexOne helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%202.svg" alt="Frames%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%203.svg" alt="Frames%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
-        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%204.svg" alt="Frames%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
+        <div id="editorui-mainContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%201.svg" alt="EditorUI-Main%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%202.svg" alt="EditorUI-Main%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%203.svg" alt="EditorUI-Main%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/UI/Editor/EditorUI-Main/EditorUI-Main%204.svg" alt="EditorUI-Main%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
+        </div>
+
+        <div id="startActiveContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Start%20Active/Start%20Active%201.svg" alt="Start%20Active%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
+
+        <div id="framesContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%201.svg" alt="Frames%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%202.svg" alt="Frames%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%203.svg" alt="Frames%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%204.svg" alt="Frames%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
+        </div>
     </div>
 
     <script src="script.js"></script>
