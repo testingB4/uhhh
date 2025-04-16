@@ -341,6 +341,14 @@
                     <h2 class="groupText">Beginner</h2>
                 </div>
                 <div class="tutorialGroup">
+
+                    <div id="floorTeleporterGroup" class="cardGroup" onclick="openTutorial('floorTeleporterContainer', 'Floor Teleporter', 3)">
+                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Floor%20Teleporter/Floor%20Teleporter%20main.svg" alt="Floor%20Teleporter%20main.svg" id="FloorTeleportermain" class="cardMain floorTeleporterCard" loading="lazy">
+                    </div>
+
+                    <div id="handTeleporterGroup" class="cardGroup" onclick="openTutorial('handTeleporterContainer', 'Hand Teleporter', 3)">
+                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Hand%20Teleporter/Hand%20Teleporter%20main.svg" alt="Hand%20Teleporter%20main.svg" id="HandTeleportermain" class="cardMain handTeleporterCard" loading="lazy">
+                    </div>
                     
                     <div class="cardGroup FeedbackLink" onclick="window.open('https://discord.gg/J3yDuye6Uz', '_blank')">
                         <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/aa24d494891c8ac87e3f645ea610477be3895e6a/assets/Placeholder%20Discord%20main.svg" alt="Placeholder.svg" class="cardMain" loading="lazy">
@@ -417,6 +425,10 @@
                     <h2 class="groupText">Beginner</h2>
                 </div>
                 <div class="tutorialGroup">
+
+                    <div id="buttonGroup" class="cardGroup" onclick="openTutorial('buttonContainer', 'Button', 3)">
+                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Button/Button%20main.svg" alt="Button%20main.svg" id="Buttonmain" class="cardMain buttonCard" loading="lazy">
+                    </div>
                     
                     <div class="cardGroup FeedbackLink" onclick="window.open('https://discord.gg/J3yDuye6Uz', '_blank')">
                         <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/aa24d494891c8ac87e3f645ea610477be3895e6a/assets/Placeholder%20Discord%20main.svg" alt="Placeholder.svg" class="cardMain" loading="lazy">
@@ -518,6 +530,7 @@
             <p><span class="verison">0.08: </span>Did some favicon stuff.</p>
             <p><span class="verison">0.09: </span>Make gifs restart on hover & reduce blurriness when cards scale up.</p>
             <p><span class="verison">0.10: </span>Reconfigured everything for mobile devices (disabling hover effects and scales) to work better overall. Cards with pngs are blurry.</p>
+            <p><span class="verison">0.11: </span>Added three new decks (Button + hand & floor teleporters).</p>
         </div>
     </div>
     <button id="patchNotesToggle" type="button">Patch Notes</button>
@@ -527,12 +540,12 @@
         <div id="helpContainer">
             <p id="helpOne">No extra help on this step.</p>
             <p id="helpTwo">Make sure they're far enough apart so when you're going left and right you don't make contact with the other triggers.</p>
-            <p id="helpThree">Make sure to disable "Start Active" at the top right of the animate menu.</p>
+            <p id="helpThree">Make "Start Active" is disabled at the top right of the animate menu.</p>
             <p id="helpFour">To go into a group, do right thumbstick up and press. To go out of a group, do right thumbstick down and press.</p>
             <p id="helpFive">If you're making it go up and down, place the block far enough away, so it cant be seen poking through anywhere.</p>
             <p id="helpSix">If it's barely working at the end, increase the time it takes to travel to the bottom.</p>
             <p id="helpSeven">Make sure the first and last triggers in the line are below the block that moves down in the animation.</p>
-            <p id="helpEight">Make sure to enable "Start Active" at the top right of the animate menu.</p>
+            <p id="helpEight">Make "Start Active" is enabled at the top right of the animate menu.</p>
         </div>
     </div>
 
@@ -545,7 +558,7 @@
     </div>
     
     <div id="text">
-        <h2><span id="tutID">c</span> Tutorial</h2>
+        <h2><span id="tutID">c</span></h2>
         <p id="num">a/b</p>
     </div>
 
@@ -834,6 +847,8 @@
             <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Particles/Particles%208.svg" alt="Particles%208.svg" class="card cardFour indexEight helpOne" loading="lazy">
         </div>
 
+        <h2 id="secretMessage">What!! Put the card back you evil person! 😡</h2>
+
         <div id="sublevelsContainer" class="cardContainer">
             <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%201.svg" alt="Sublevels%201.svg" class="cardOne indexOne helpOne" loading="lazy">
             <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/New%20features/Sublevels/Sublevels%202.svg" alt="Sublevels%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
@@ -926,7 +941,27 @@
             <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%203.svg" alt="Frames%203.svg" class="card cardThree indexThree helpOne" loading="lazy">
             <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Frames/Frames%204.svg" alt="Frames%204.svg" class="card cardFour indexFour helpOne" loading="lazy">
         </div>
+
+        <div id="handTeleporterContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Hand%20Teleporter/Hand%20Teleporter%201.svg" alt="Hand%20Teleporter%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Hand%20Teleporter/Hand%20Teleporter%202.svg" alt="Hand%20Teleporter%202.svg" class="card cardTwo indexTwo helpEight" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Hand%20Teleporter/Hand%20Teleporter%203.svg" alt="Hand%20Teleporter%203.svg" class="card cardFour indexThree helpOne" loading="lazy">
+        </div>
+
+        <div id="floorTeleporterContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Floor%20Teleporter/Floor%20Teleporter%201.svg" alt="Floor%20Teleporter%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Floor%20Teleporter/Floor%20Teleporter%202.svg" alt="Floor%20Teleporter%202.svg" class="card cardTwo indexTwo helpEight" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Floor%20Teleporter/Floor%20Teleporter%203.svg" alt="Floor%20Teleporter%203.svg" class="card cardFour indexThree helpOne" loading="lazy">
+        </div>
+
+        <div id="buttonContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Button/Button%201.svg" alt="Button%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Button/Button%202.svg" alt="Button%202.svg" class="card cardTwo indexTwo helpThree" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Button/Button%203.svg" alt="Button%203.svg" class="card cardFour indexThree helpOne" loading="lazy">
+        </div>
     </div>
+
+    
 
     <script src="script.js"></script>
 </body>

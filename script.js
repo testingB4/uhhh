@@ -135,6 +135,14 @@ function openTutorial(element, tutorialName, totalSteps, safetyNet) {
 
     if (safetyNet === "no") {
         oneCardSafetyNet(container);
+        setTimeout(() => {
+            const secretMessage = document.getElementById("secretMessage");
+            container.appendChild(secretMessage);
+            secretMessage.style.display = "block";
+            secretMessage.style.opacity = 1;
+            secretMessage.style.zIndex = "-1";
+            secretMessage.style.position = "absolute";
+        }, 300);
     } else {
         moveSafetyNets(container);
     }
@@ -163,6 +171,9 @@ function closeTutorial() {
             help.style.pointerEvents = 'none';
             help.classList.remove("active");
             text.style.opacity = 0;
+
+            document.getElementById("secretMessage").style.display = "none";
+        document.getElementById("secretMessage").style.opacity = 0;
 
             const elements = container.querySelectorAll(".card");
             elements.forEach(element => {
@@ -194,7 +205,7 @@ function closeTutorial() {
         }
     });
 
-    const helpElements = [helpTwo, helpThree, helpFour, helpFive];
+    const helpElements = [helpTwo, helpThree, helpFour, helpFive, helpSix, helpSeven, helpEight];
     helpElements.forEach(helpElement => {
         helpElement.style.opacity = "0";
     });
@@ -203,6 +214,7 @@ function closeTutorial() {
 
     document.querySelectorAll(".cardOne").forEach(cardOne => {
         cardOne.classList.remove("active");
+        cardOne.style.pointerEvents = 'auto';
     });
 
     document.querySelectorAll(".cardGroup").forEach(card => {
