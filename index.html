@@ -89,9 +89,13 @@
                         <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Jumping/Jumping%20gif.gif" alt="Jumping%20gif.gif" id="Jumpinggif" class="jumpingCard gif" loading="lazy">
                     </div>
 
-                    <div id="grapplingGroup" class="cardGroup" onclick="openTutorial('grapplingContainer', 'Grappling', 1, 'no')">
+                    <div id="grapplingGroup" class="cardGroup" onclick="openTutorial('grapplingContainer', 'Grappling', 2)">
                         <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Grappling/Grappling%20main.svg" alt="Grappling%20main.svg" id="Grapplingmain" class="cardMain grapplingCard" loading="lazy">
-                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Grappling/Grappling%20gif.gif" alt="Grappling%20gif.gif" id="Grapplinggif" class="grapplingCard gif" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Grappling/Grappling%20gif.gif" alt="Grappling%20gif.gif" id="Grapplinggif" class="grapplingCard" loading="lazy">
+                    </div>
+
+                    <div id="lobbyGroup" class="cardGroup" onclick="openTutorial('lobbyContainer', 'Lobby', 1, 'no')">
+                        <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Lobby/Lobby%20main.svg" alt="Lobby%20main.svg" id="Lobbymain" class="cardMain lobbyCard" loading="lazy">
                     </div>
 
                     <div class="cardGroup FeedbackLink" onclick="window.open('https://discord.gg/J3yDuye6Uz', '_blank')">
@@ -534,6 +538,7 @@
             <p><span class="verison">0.10: </span>Reconfigured everything for mobile devices (disabling hover effects and scales) to work better overall. Cards with pngs are blurry.</p>
             <p><span class="verison">0.11: </span>Added three new decks (Button + hand & floor teleporters).</p>
             <p><span class="verison">0.12: </span>Re-added horizontal scrolling, it should be smoother and better overall.</p>
+            <p><span class="verison">0.13: </span>Added Lobby deck and another card to Grappling, also removed "Tutorial" from the top of the cards.</p>
         </div>
     </div>
     <button id="patchNotesToggle" type="button">Patch Notes</button>
@@ -571,6 +576,7 @@
 
         <div id="grapplingContainer" class="cardContainer">
             <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Grappling/Grappling%201.svg" alt="Grappling%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Grappling/Grappling%202.svg" alt="Grappling%202.svg" class="card cardTwo indexTwo helpOne" loading="lazy">
         </div>
 
         <div id="jumpingContainer" class="cardContainer">
@@ -579,6 +585,10 @@
 
         <div id="walkingContainer" class="cardContainer">
             <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Basics/Movement/Walking/Walking%201.svg" alt="Walking%201.svg" class="cardOne indexOne helpOne" loading="lazy">
+        </div>
+
+        <div id="lobbyContainer" class="cardContainer">
+            <img src="https://raw.githubusercontent.com/StandiINF/GRAB-Tutorials/main/assets/Lobby/Lobby%201.svg" alt="Lobby%201.svg" class="cardOne indexOne helpOne" loading="lazy">
         </div>
 
         <div id="weeklySpotlightContainer" class="cardContainer">
