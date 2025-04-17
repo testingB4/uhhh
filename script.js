@@ -23,9 +23,15 @@ patchNotesToggle.addEventListener("click", () => {
     if (patchNotesContainer.style.top === "0px") {
         patchNotesContainer.style.top = "-100%";
         patchNotesToggle.innerText = "Patch Notes";
+        setTimeout(() => { 
+            patchNotesContainer.style.display = "none";
+        }, 100);
     } else {
-        patchNotesContainer.style.top = "0px";
-        patchNotesToggle.innerText = "Close";
+        patchNotesContainer.style.display = "block";
+        setTimeout(() => {
+            patchNotesContainer.style.top = "0px";
+            patchNotesToggle.innerText = "Close";
+        }, 10);
     }
 });
 
@@ -300,6 +306,37 @@ document.querySelectorAll(".card").forEach((card, index) => {
         }
     });
 });
+
+// horizontal scrolling
+
+document.querySelectorAll('.tutorialGroup').forEach(group => {
+    let targetScroll = 0;
+    let isScrolling = false;
+    group.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const scrollSpeed = 2.5;
+      targetScroll += e.deltaY * scrollSpeed;
+      const maxScroll = group.scrollWidth - group.clientWidth;
+      targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+      if (!isScrolling) {
+        isScrolling = true;
+        smoothScroll();
+      }
+      function smoothScroll() {
+        const currentScroll = group.scrollLeft;
+        const distance = targetScroll - currentScroll;
+        const step = distance * 0.15;
+  
+        if (Math.abs(step) > 0.5) {
+          group.scrollLeft += step;
+          requestAnimationFrame(smoothScroll);
+        } else {
+          group.scrollLeft = targetScroll;
+          isScrolling = false;
+        }
+      }
+    }, { passive: false });
+  });  
 
 document.getElementById("help").addEventListener("click", function() {
     this.classList.toggle("active");
