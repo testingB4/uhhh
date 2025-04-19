@@ -498,3 +498,9 @@ function hasTouch() {
       }
     } catch (ex) {}
   }
+
+const cardElements = document.querySelectorAll('.card, .cardOne');
+const cardGroups = document.querySelectorAll('.cardGroup:not(.FeedbackLink)');
+console.log(`Total cards: ${cardElements.length}`);
+console.log(`Total decks: ${cardGroups.length}`);
+console.log(`To open Patch Notes, press Numpad +`);
