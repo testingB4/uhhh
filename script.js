@@ -51,14 +51,13 @@ document.addEventListener("keydown", (event) => {
 // menu opening / closing
 
 function openMenu(menuId) {
-    const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
-    const buttons = ["T", "B", "A", "E", "F"];
+    const menus = ["TMenu", "BMenu", "AMenu", "EMenu"];
+    const buttons = ["T", "B", "A", "E"];
     const colors = {
         TMenu: { background: "rgb(248, 153, 0)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(248, 153, 0) 100%)", buttonGradient: "linear-gradient(to top, rgb(248, 153, 0), transparent)" },
         BMenu: { background: "rgb(144, 207, 144)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(144, 207, 144) 100%)", buttonGradient: "linear-gradient(to top, rgb(144, 207, 144), transparent)" },
         AMenu: { background: "#638DDD", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, #638DDD 100%)", buttonGradient: "linear-gradient(to top, #638DDD, transparent)" },
         EMenu: { background: "rgb(124, 72, 72)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(124, 72, 72) 100%)", buttonGradient: "linear-gradient(to top, rgb(124, 72, 72), transparent)" },
-        FMenu: { background: "rgb(172, 53, 162)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(172, 53, 162) 100%)", buttonGradient: "linear-gradient(to top, rgb(172, 53, 162), transparent)" }
     };
     const menu = document.getElementById(menuId);
     const menuButtons = document.getElementById("menuButtons");
@@ -111,7 +110,7 @@ function openMenu(menuId) {
 }
 
 function closeMenu() {
-    const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "FMenu"];
+    const menus = ["TMenu", "BMenu", "AMenu", "EMenu"];
     menus.forEach(menuId => {
         const menu = document.getElementById(menuId);
         menu.style.pointerEvents = 'none';
@@ -141,6 +140,12 @@ function openTutorial(element, tutorialName, totalSteps, safetyNet) {
 
     if (safetyNet === "no") {
         oneCardSafetyNet(container);
+        
+    } else {
+        moveSafetyNets(container);
+    }
+
+    if (Array.from(document.getElementsByClassName("cardOne")).some(el => el.classList.contains("active")) && safetyNet === "no") {
         setTimeout(() => {
             const secretMessage = document.getElementById("secretMessage");
             container.appendChild(secretMessage);
@@ -149,8 +154,6 @@ function openTutorial(element, tutorialName, totalSteps, safetyNet) {
             secretMessage.style.zIndex = "-1";
             secretMessage.style.position = "absolute";
         }, 300);
-    } else {
-        moveSafetyNets(container);
     }
 
     document.getElementById("safetyNetMiddle").style.display = "block";
@@ -379,36 +382,10 @@ function showHelp(helpId) {
     });
 }
 
-document.querySelectorAll(".helpOne").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpOne"));
-});
-
-document.querySelectorAll(".helpTwo").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpTwo"));
-});
-
-document.querySelectorAll(".helpThree").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpThree"));
-});
-
-document.querySelectorAll(".helpFour").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpFour"));
-});
-
-document.querySelectorAll(".helpFive").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpFive"));
-});
-
-document.querySelectorAll(".helpSix").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpSix"));
-});
-
-document.querySelectorAll(".helpSeven").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpSeven"));
-});
-
-document.querySelectorAll(".helpEight").forEach(element => {
-    element.addEventListener("click", () => showHelp("helpEight"));
+["helpOne", "helpTwo", "helpThree", "helpFour", "helpFive", "helpSix", "helpSeven", "helpEight"].forEach(helpId => {
+    document.querySelectorAll(`.${helpId}`).forEach(element => {
+        element.addEventListener("click", () => showHelp(helpId));
+    });
 });
 
 // randomiser hover changey thingy
