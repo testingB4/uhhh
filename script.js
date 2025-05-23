@@ -51,16 +51,69 @@ document.addEventListener("keydown", (event) => {
 // menu opening / closing
 
 function openMenu(menuId) {
-    const menus = ["TMenu", "BMenu", "AMenu", "EMenu"];
-    const buttons = ["T", "B", "A", "E"];
-    const colors = {
-        TMenu: { background: "rgb(248, 153, 0)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(248, 153, 0) 100%)", buttonGradient: "linear-gradient(to top, rgb(248, 153, 0), transparent)" },
-        BMenu: { background: "rgb(144, 207, 144)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(144, 207, 144) 100%)", buttonGradient: "linear-gradient(to top, rgb(144, 207, 144), transparent)" },
-        AMenu: { background: "#638DDD", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, #638DDD 100%)", buttonGradient: "linear-gradient(to top, #638DDD, transparent)" },
-        EMenu: { background: "rgb(124, 72, 72)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(124, 72, 72) 100%)", buttonGradient: "linear-gradient(to top, rgb(124, 72, 72), transparent)" },
-    };
+    const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "LMenu"];
+    const buttons = ["T", "B", "A", "E", "L"];
+    let userColour = localStorage.getItem('hexColor') || "#888888";
+    let userColourSecondary = localStorage.getItem('hexColorSecondary') || "#888888";
     const menu = document.getElementById(menuId);
     const menuButtons = document.getElementById("menuButtons");
+
+    function applyMenuColours(colour, secondaryColour) {
+        const colors = {
+            TMenu: { background: "rgb(248, 153, 0)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(248, 153, 0) 100%)", buttonGradient: "linear-gradient(to top, rgb(248, 153, 0), transparent)" },
+            BMenu: { background: "rgb(144, 207, 144)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(144, 207, 144) 100%)", buttonGradient: "linear-gradient(to top, rgb(144, 207, 144), transparent)" },
+            AMenu: { background: "#638DDD", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, #638DDD 100%)", buttonGradient: "linear-gradient(to top, #638DDD, transparent)" },
+            EMenu: { background: "rgb(124, 72, 72)", gradient: "linear-gradient(to top, rgba(177, 65, 65, 0) 0%, rgb(124, 72, 72) 100%)", buttonGradient: "linear-gradient(to top, rgb(124, 72, 72), transparent)" },
+            LMenu: { background: colour, gradient: `linear-gradient(to top, rgba(177, 65, 65, 0) 0%, ${colour} 100%)`, buttonGradient: `linear-gradient(to top, ${colour}, transparent)` },
+        };
+        menus.forEach((id, index) => {
+            const currentMenu = document.getElementById(id);
+            const containers = currentMenu.querySelectorAll(".menuContainer");
+            const button = document.getElementById(buttons[index]);
+
+            if (id === menuId) {
+                currentMenu.style.display = 'block';
+                currentMenu.style.zIndex = 1000;
+                button.classList.add("active");
+
+                if (id === "TMenu") button.style.background = "rgb(248, 153, 0)";
+                else if (id === "BMenu") button.style.background = "rgb(144, 207, 144)";
+                else if (id === "AMenu") button.style.background = "#638DDD";
+                else if (id === "EMenu") button.style.background = "rgb(124, 72, 72)";
+                else if (id === "LMenu") button.style.background = secondaryColour;
+
+                const mMenu = document.getElementById("MMenu");
+                mMenu.style.transition = "background 0.3s ease, var(--menu-gradient) 0.3s ease";
+                mMenu.style.background = colors[id].background;
+                mMenu.style.setProperty("--menu-gradient", colors[id].gradient);
+
+                menuButtons.style.setProperty("--button-gradient", colors[id].buttonGradient);
+
+                containers.forEach(container => {
+                    container.style.display = 'flex';
+                });
+
+                currentMenu.style.pointerEvents = 'auto';
+                menuButtons.style.pointerEvents = "auto";
+            } else {
+                currentMenu.style.pointerEvents = 'none';
+                currentMenu.style.zIndex = '';
+                currentMenu.style.display = 'none';
+                button.classList.remove("active");
+            }
+        });
+        const lButton = document.getElementById('L');
+        if (lButton) {
+            if (menuId === "LMenu") {
+                lButton.style.background = secondaryColour;
+            } else {
+                const sessionId = localStorage.getItem('sessionId');
+                if (sessionId && secondaryColour && secondaryColour !== "#888888") {
+                    lButton.style.background = secondaryColour;
+                }
+            }
+        }
+    }
 
     menuButtons.style.pointerEvents = "none";
 
@@ -77,40 +130,43 @@ function openMenu(menuId) {
         return;
     }
 
-    menus.forEach((id, index) => {
-        const currentMenu = document.getElementById(id);
-        const containers = currentMenu.querySelectorAll(".menuContainer");
-        const button = document.getElementById(buttons[index]);
-
-        if (id === menuId) {
-            currentMenu.style.display = 'block';
-            currentMenu.style.zIndex = 1000;
-            button.classList.add("active");
-
-            const mMenu = document.getElementById("MMenu");
-            mMenu.style.transition = "background 0.3s ease, var(--menu-gradient) 0.3s ease";
-            mMenu.style.background = colors[id].background;
-            mMenu.style.setProperty("--menu-gradient", colors[id].gradient);
-
-            menuButtons.style.setProperty("--button-gradient", colors[id].buttonGradient);
-
-            containers.forEach(container => {
-                container.style.display = 'flex';
+    if (
+        (menuId === "LMenu" || localStorage.getItem('sessionId')) &&
+        (!localStorage.getItem('hexColor') || !localStorage.getItem('hexColorSecondary'))
+    ) {
+        const sessionId = localStorage.getItem('sessionId');
+        if (sessionId) {
+            fetch(`https://api.grab-tutorials.live/getAlias?sessionId=${encodeURIComponent(sessionId)}`, {
+                method: 'GET',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.ok ? response.json() : null)
+            .then(data => {
+                if (data && data.hexColor) {
+                    userColour = data.hexColor;
+                    localStorage.setItem('hexColor', userColour);
+                }
+                if (data && data.hexColorSecondary) {
+                    userColourSecondary = data.hexColorSecondary;
+                    localStorage.setItem('hexColorSecondary', userColourSecondary);
+                }
+                applyMenuColours(userColour, userColourSecondary);
+            })
+            .catch(() => {
+                applyMenuColours(userColour, userColourSecondary);
             });
-
-            currentMenu.style.pointerEvents = 'auto';
-            menuButtons.style.pointerEvents = "auto";
-        } else {
-            currentMenu.style.pointerEvents = 'none';
-            currentMenu.style.zIndex = '';
-            currentMenu.style.display = 'none';
-            button.classList.remove("active");
+            return;
         }
-    });
+    }
+
+    applyMenuColours(userColour, userColourSecondary);
 }
 
 function closeMenu() {
-    const menus = ["TMenu", "BMenu", "AMenu", "EMenu"];
+    const menus = ["TMenu", "BMenu", "AMenu", "EMenu", "LMenu"];
     menus.forEach(menuId => {
         const menu = document.getElementById(menuId);
         menu.style.pointerEvents = 'none';
